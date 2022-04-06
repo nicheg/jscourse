@@ -30,16 +30,37 @@ const restaurant = {
     },
   },
 
-  orderText: function (mainMenuIndex) {
+  orderText(mainMenuIndex) {
     console.log(`You just ordered ${this.mainMenu[mainMenuIndex]}!`);
   },
-};
 
-restaurant.orderText(2, 1);
+  getName() {
+    return this.name;
+  },
+};
 
 const {
   openingHours: open,
   name: restName,
   website: web = 'no website',
 } = restaurant;
-console.log(open, restName, web);
+
+let arr = [1, 2, 3, 4];
+// for (const item of arr.entries()) {
+//   console.log(item[0], item[1]);
+// }
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// optional chaining
+for (const day of days) {
+  console.log(
+    `On ${day} the restaurant ${restaurant.name} opens at: ${
+      restaurant.openingHours[day]?.open ?? 0
+    } and closes at ${restaurant.openingHours[day]?.close ?? 24}`
+  );
+}
+
+const users = [{ name: 'Jonas', mail: 'jonas@web.de' }];
+
+console.log(users[0] ?? 'Nicht vorhanden');
