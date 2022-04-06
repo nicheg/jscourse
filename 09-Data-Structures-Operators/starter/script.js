@@ -29,4 +29,17 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderText: function (mainMenuIndex) {
+    console.log(`You just ordered ${this.mainMenu[mainMenuIndex]}!`);
+  },
 };
+
+restaurant.orderText(2, 1);
+
+const {
+  openingHours: open,
+  name: restName,
+  website: web = 'no website',
+} = restaurant;
+console.log(open, restName, web);
